@@ -1,0 +1,22 @@
+{
+  "name": "fit-component-tools",
+  "version": "0.1.0",
+  "description": "build tools for fit",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andycall/fit-component-tools.git"
+  },
+  "keywords": [
+    "FIT"
+  ],
+  "author": "andycall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andycall/fit-component-tools/issues"
+  },
+  "homepage": "https://github.com/andycall/fit-component-tools#readme"
+}
