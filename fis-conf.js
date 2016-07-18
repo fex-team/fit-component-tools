@@ -20,7 +20,9 @@ fis.match('/src/(**).{ts,tsx,js,jsx}', {
     rExt: 'js',
     useSameNameRequire: true,
     parser: fis.plugin(babelPlug, {
-        presets: ["es2016-node5", "stage-3"]
+        presets: ["es2016-node5", "stage-3"],
+        plugins: ["add-module-exports"],
+        sourceMaps: true
     }),
     release: '/$1'
 });
