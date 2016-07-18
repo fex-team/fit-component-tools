@@ -42,3 +42,7 @@ jspm_packages
 *.iml
 out
 gen
+
+typings
+
+lib/

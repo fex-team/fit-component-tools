@@ -2,9 +2,10 @@
   "name": "fit-component-tools",
   "version": "0.1.0",
   "description": "build tools for fit",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "npm test"
+    "build": "fis3 release -cd ./lib",
+    "test": "node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,17 @@
   "bugs": {
     "url": "https://github.com/andycall/fit-component-tools/issues"
   },
-  "homepage": "https://github.com/andycall/fit-component-tools#readme"
+  "homepage": "https://github.com/andycall/fit-component-tools#readme",
+  "dependencies": {
+    "koa": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-plugin-add-module-exports": "^0.1.4",
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-preset-es2016-node5": "^1.1.2",
+    "babel-preset-stage-3": "^6.11.0",
+    "events": "^1.1.1",
+    "object-assign": "^4.1.0"
+  }
 }
