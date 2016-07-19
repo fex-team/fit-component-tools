@@ -17,11 +17,11 @@ app.use(convert(bodyParser));
 app.use(convert(json()));
 app.use(convert(logger()));
 
-app.use(convert(koaStatic(path.join(__dirname, '../public')), {
+app.use(convert(koaStatic(path.join(__dirname, './public')), {
     pathPrefix: ''
 }));
 
-app.use(views(path.join(__dirname, '../views'), {
+app.use(views(path.join(__dirname, './views'), {
     map: {
         html: 'mustache'
     },
@@ -29,7 +29,7 @@ app.use(views(path.join(__dirname, '../views'), {
 }));
 
 KoaOnError(app, {
-    template: 'views/500.mustache'
+    template: path.join(__dirname, './views', '500.mustache')
 });
 
 app.use(async (ctx, next) => {

@@ -16,7 +16,7 @@ fis.set('project.ignore', [
     'fis-plugin/**'
 ]);
 
-fis.match('/src/(**).{ts,tsx,js,jsx}', {
+fis.match('/src/server/(**).{ts,tsx,js,jsx}', {
     rExt: 'js',
     useSameNameRequire: true,
     parser: fis.plugin(babelPlug, {
@@ -24,12 +24,21 @@ fis.match('/src/(**).{ts,tsx,js,jsx}', {
         plugins: ["add-module-exports"],
         sourceMaps: true
     }),
-    release: '/$1'
+    release: '/server/$1'
 });
+
+fis.match('/src/server/views/(**).mustache', {
+    release: '/server/views/$1'
+});
+
+fis.match('/src/server/public/(**)', {
+    release: '/server/public/$1'
+});
+
 
 const dev = fis.media('dev');
 
-dev.match('/src/(**).{ts,tsx,js,jsx}', {
+dev.match('/src/server/(**).{ts,tsx,js,jsx}', {
     rExt: 'js',
     isMod: true,
     useSameNameRequire: true,
@@ -38,12 +47,12 @@ dev.match('/src/(**).{ts,tsx,js,jsx}', {
         plugins: ["add-module-exports"],
         sourceMaps: true
     }),
-    release: '/$1'
+    release: '/server/$1'
 });
 
 const production = fis.media('production');
 
-production.match('/src/(**).{ts,tsx,js,jsx}', {
+production.match('/src/server/(**).{ts,tsx,js,jsx}', {
     rExt: 'js',
     isMod: true,
     useSameNameRequire: true,
@@ -52,5 +61,5 @@ production.match('/src/(**).{ts,tsx,js,jsx}', {
         plugins: ["add-module-exports"],
         minified: true
     }),
-    release: '/$1'
+    release: '/server/$1'
 });
