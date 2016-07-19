@@ -13,7 +13,9 @@ fis.set('project.ignore', [
     'README.md',
     'typings.json',
     'typings/**',
-    'fis-plugin/**'
+    'fis-plugin/**',
+    'src/client/**',
+    'webpack.config.js'
 ]);
 
 fis.match('/src/server/(**).{ts,tsx,js,jsx}', {

@@ -1,0 +1,13 @@
+{
+  "apps": [{
+    "name": "fit-component-tools",
+    "script": "lib/server/index.js",
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }]
+}
