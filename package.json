@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "fis3 release -cd ./lib",
-    "test": "node lib/index.js"
+    "test": "node lib/server/index.js"
   },
   "repository": {
     "type": "git",
