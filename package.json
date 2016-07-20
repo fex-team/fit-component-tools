@@ -4,8 +4,14 @@
   "description": "build tools for fit",
   "main": "lib/index.js",
   "scripts": {
-    "build": "fis3 release -cd ./lib",
-    "test": "node lib/server/index.js"
+    "dev": "npm run build && npm run server & npm run webpack & npm run fis3 &",
+    "build": "babel src/server --out-dir lib/server",
+    "server": "pm2 start pm2.json",
+    "webpack": "webpack --watch --progress",
+    "fis3": "fis3 release -wcd ./lib",
+    "kill-fis3": "kill $(ps aux | grep fis3 | awk '{print $2}') 2> /dev/null",
+    "kill-webpack": "kill $(ps aux | grep webpack | awk '{print $2}') 2> /dev/null",
+    "clear": "pm2 kill && npm run kill-fis3 && npm run kill-webpack"
   },
   "repository": {
     "type": "git",
@@ -21,6 +27,7 @@
   },
   "homepage": "https://github.com/andycall/fit-component-tools#readme",
   "dependencies": {
+    "css-loader": "^0.23.1",
     "koa": "^2.0.0",
     "koa-bodyparser": "^2.2.0",
     "koa-convert": "^1.2.0",
@@ -34,12 +41,24 @@
     "mustache": "^2.2.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2016-node5": "^1.1.2",
+    "babel-preset-react": "^6.11.1",
     "babel-preset-stage-3": "^6.11.0",
+    "css-path-loader": "^1.0.1",
     "events": "^1.1.1",
-    "object-assign": "^4.1.0"
+    "file-loader": "^0.9.0",
+    "html-path-loader": "^0.1.12",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "object-assign": "^4.1.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
   }
 }
